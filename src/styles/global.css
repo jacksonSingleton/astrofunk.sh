@@ -43,9 +43,17 @@ header {
     border-bottom: 6px solid var(--gold);
 }
 
+header > a {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
 header > a > pre {
-    line-height: 1.7vw;
-    font-size: 1.8vw;
+    line-height: 1.4vw;
+    font-size: 1.5vw;
     font-family: monospace;
     color: var(--pine);
     cursor: pointer;
@@ -66,8 +74,8 @@ header > a {
 
 @media (min-width: 768px) {
     header > a > pre {
-        font-size: 1.6vw;
-        line-height: 1.5vw;
+        font-size: 1.5vw;
+        line-height: 1.4vw;
     }
     .scrolled {
         font-size: 1.2vw;
@@ -194,5 +202,5 @@ a h4 {
 }
 
 .lightswitch:hover {
-    background: calc(var(--overlay) + 0.1);
+    background: color-mix(in srgb, var(--overlay), var(--rose) 10%);
 }

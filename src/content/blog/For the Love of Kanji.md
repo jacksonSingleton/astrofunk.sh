@@ -13,7 +13,7 @@ And last, but not least, Japanese Kanji.
 
 ![Gloves](/blogimg/f7f3ddeb0b9dd5ab2a5c6ec3f817308a.png)
 > Der Handschuh in German = Hand Shoes, aka Gloves is an example of the Komposita at work. [Source: Unsplash](https://unsplash.com/photos/red-textile-on-white-table-5nk5mWyRDg0)
-# Why Japanese?
+# Problem with Learning Japanese?
 ---
 I find that Japanese is in an interesting position for American language learners as it can be really... *useless*. I will never argue against education for the sake of education, however, if one (American english speaker) were to take a utilitarian approach to language learning, then Japanese has no room on the podium against Spanish, French, and Mandarin. Japanese has an immense draw to worldwide learners due to the nation's enormous cultural impact. Over the past 50 years, Japan took the world by storm with anime, video games, toys, Godzilla, and other cultural cornerstones that many hold strong emotional bonds to. This often comes a desire to deepen that cultural bond through sharing the language.
 
@@ -52,7 +52,7 @@ Something you may have noticed about Kanji, as opposed to the other scripts we d
 
 >† There are plenty of cases of associated sounds for Kanji, however, there may be more than one and there isn't a guaranteed 1:1 correlation of a Kanji character to a sound. This is not the case for Hiragana and Katakana, almost always will か sound like kah.
 
-# 好きですか - Why Do I Like Them?
+# 好きですか - What's Good About Kanji?
 ---
 For Japanese people, I could presume that there is cultural significance and historical bias baked in to the continuation of the use of Kanji. However, I love Kanji as it allows every character to tell a story, show some etymology or be understood in context. With a baseline understanding of many kanji you can use context, the use of radicals, and compounds of entire Kanji to help drive the meaning of the character.
 
@@ -62,7 +62,7 @@ This example is lovely, but only paints the picture for a single Kanji. As menti
 
 ## The Simple & Honest Answer
 
-Finally, outside of the beauty and character(yes, pun intended) of Kanji. ***Readability***. As I said earlier, Kanji aren't always phonetic and will have different ways to be read. [That being said, once you start to accept the understanding that Japanese is implicitly high-context](https://japanjunky.com/understanding-japans-high-context-culture/), not understanding Kanji is no different than reading Classics in English, we will miss or not understand words, but can gather meanings purely on context. As you continue to learn and understand more Kanji and attain pattern recognition around said characters, being able to quickly read something like 私の鍵, instead of わたしのかぎ, is significantly easier. Even in English, the fastest and most comprehensive readers are considered visual readers(Lobier, et al., 2013)[^2]
+Finally, outside of the beauty and character(yes, pun intended) of Kanji. ***Readability***. As I said earlier, Kanji aren't always phonetic and will have different ways to be read. [That being said, once you start to accept the understanding that Japanese is implicitly high-context](https://japanjunky.com/understanding-japans-high-context-culture/), not understanding Kanji is no different than reading archaic words in the Classics in English, we will miss or not understand words, but can gather meanings purely on context. As you continue to learn and understand more Kanji and attain pattern recognition around said characters, being able to quickly read something like 私の鍵, instead of わたしのかぎ, is significantly easier. Even in English, the fastest and most comprehensive readers are considered visual readers(Lobier, et al., 2013)[^2]
 , Kanji naturally lends itself to visual reading as you aren't likely to subvocalize non-phonetic characters, and has been shown to be strongly correlated with visual reading abilities(Nakagawa, 1994)[^3].
 
 # どうやって - How Do I Start?
