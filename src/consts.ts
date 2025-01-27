@@ -5,7 +5,7 @@ export const SITE_TITLE = "ASTROFUNK";
 export const SITE_DESCRIPTION =
   "musings on code, language, engineering, and life";
 
-const headers = [
+export const HEADERS = [
   String.raw`
    ______  ______  ______ ______  ______  ______ __  __  __   __  __  __
   /\  __ \/\  ___\/\__  _/\  == \/\  __ \/\  ___/\ \/\ \/\ "-.\ \/\ \/ /
@@ -59,5 +59,5 @@ const headers = [
 ];
 
 export const ASTROFUNK = () => {
-  return headers[Math.floor(Math.random() * headers.length)];
+  return HEADERS[Math.floor(Math.random() * HEADERS.length)];
 };
