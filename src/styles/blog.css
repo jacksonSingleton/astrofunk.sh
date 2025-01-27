@@ -14,7 +14,7 @@ body {
     line-height: 1.7;
 }
 article {
-    width: 720px;
+    width: 80%;
     max-width: calc(100% - 2em);
     margin: auto;
     padding: 3em 1em;
@@ -87,12 +87,18 @@ pre {
 pre > code {
     all: unset;
 }
+
+a > pre {
+    padding: 0;
+}
 blockquote {
     border-left: 4px solid var(--love);
-    padding: 0 0 0 20px;
+    padding: 8px 8px 8px 20px;
     margin: 0px;
-    font-size: 1.333em;
+    font-size: 0.7em;
+    background: color-mix(in srgb, var(--love), transparent 90%);
 }
+
 hr {
     border: none;
     border-top: 1px solid var(--overlay);

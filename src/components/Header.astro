@@ -9,6 +9,15 @@ import { SITE_TITLE, ASTROFUNK } from "../consts";
 </header>
 
 <script is:inline>
+    document.onscroll = () => {
+        if (window.scrollY > 64) {
+            document.querySelector("header a pre").classList.add("scrolled");
+        }
+        if (window.scrollY === 0) {
+            document.querySelector("header a pre").classList.remove("scrolled");
+        }
+    };
+
     const theme = (() => {
         const localStorageTheme = localStorage?.getItem("theme") ?? "";
         if (["dark", "light"].includes(localStorageTheme)) {
