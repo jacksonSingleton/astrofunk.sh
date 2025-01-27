@@ -61,8 +61,15 @@ import { SITE_TITLE, HEADERS } from "../consts";
                    ▐                            ▐                    ▐        ▐
     `,
     ];
-    document.querySelector("header a pre").textContent =
-        headers[Math.floor(Math.random() * headers.length)];
+
+    const i = Math.floor(Math.random() * headers.length);
+    const selectedHeading = headers[i];
+    const bigguns = [2, 3, 4, 5];
+
+    if (bigguns.includes(i)) {
+        document.querySelector("header a pre").classList.add("smaller");
+    }
+    document.querySelector("header a pre").textContent = selectedHeading;
 
     console.log;
     document.onscroll = () => {
