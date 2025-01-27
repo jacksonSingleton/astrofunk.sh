@@ -95,7 +95,8 @@ blockquote {
     border-left: 4px solid var(--love);
     padding: 8px 8px 8px 20px;
     margin: 0px;
-    font-size: 0.7em;
+    margin-bottom: 1em;
+    font-size: 0.9em;
     background: color-mix(in srgb, var(--love), transparent 90%);
 }
 
