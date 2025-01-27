@@ -172,3 +172,7 @@ a h4 {
     user-select: none;
     cursor: pointer;
 }
+
+.lightswitch:hover {
+    background: calc(var(--overlay) + 0.1);
+}
