@@ -33,6 +33,7 @@ For Japanese learners, I've found the downward path forward from Mount Stupid to
 
 # 漢字 - What the Hell is Even That?
 ---
+![What the](https://i.imgflip.com/3otymh.gif)
 If you're not familiar with the Japanese language, characters like 漢字, 本 or 私 may just look like what you would expect Japanese to look like. And you would be absolutely correct. Over 40% of written Japanese is in Kanji(Chikamatsu, et al., 2000)[^1]. The remaining 60% of written characters is generally comprised of the two other writing systems; hiragana and katakana. Hiragana and Katakana are more similar to the phonetic latin alphabet that we've become accustomed to as English speakers. In English, we assign sounds to letters, thou***gh***, they aren't always pronounced. In Japanese, their scripts are considered [syllabaries](https://en.wikipedia.org/wiki/Syllabary). In a syllabary, each character is assigned, you guessed it, to a phonetic syllable. For example the character ち makes the sounds "chi" and will almost always make that sound when read, for example: にち is read as nichi.
 
 Hiragana and Katakana are two scripts that represent the same sounds
