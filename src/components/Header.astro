@@ -13,7 +13,7 @@ import { SITE_TITLE, ASTROFUNK } from "../consts";
         if (window.scrollY > 64) {
             document.querySelector("header a pre").classList.add("scrolled");
         }
-        if (window.scrollY === 0) {
+        if (window.scrollY <= 0) {
             document.querySelector("header a pre").classList.remove("scrolled");
         }
     };
