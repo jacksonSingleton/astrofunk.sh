@@ -4,6 +4,8 @@ description: The pinnacle of language learning scapegoats
 pubDate: 2025-01-27
 heroImage: /blogimg/51974d8c1c79985fc801097d91844083.png
 ---
+> Context: I'm a new learner to Japanese, and these are the observations I have made. This is part brain dump and part research. I was curious about the use of a logographic script in a language that contains two other scripts that are phonetic. I hope you enjoy the read.
+
 Starting my dive into Japanese towards the end of last year has been such a great time. This will be my fifth language, and first non-European language that I will have studied to reasonable depth. Japanese is so unique, beautiful, and conceptually different to the languages that I've grown up with. Even core ideas such as tense, subjects, and conjugations completely fall apart when applied with a Euro-centric mindset. However, like every other language I've learned, I've found that new learners *love* sensationalizing a few initially foreign concepts in which they completely hinge the difficulty of language learning upon. As completely anecdotal evidence,
 - Spanish → Ser y Estar
 - French → 97
@@ -61,7 +63,7 @@ This example is lovely, but only paints the picture for a single Kanji. As menti
 
 ## The Simple & Honest Answer
 
-Finally, outside of the beauty and character(yes, pun intended) of Kanji. ***Readability***. As I said earlier, Kanji aren't always phonetic and will have different ways to be read. [That being said, once you start to accept the understanding that Japanese is implicitly high-context](https://japanjunky.com/understanding-japans-high-context-culture/), not understanding Kanji is no different than reading archaic words in the Classics in English, we will miss or not understand words, but can gather meanings purely on context. As you continue to learn and understand more Kanji and attain pattern recognition around said characters, being able to quickly read something like 私の鍵, instead of わたしのかぎ, is significantly easier. Even in English, the fastest and most comprehensive readers are considered visual readers(Lobier, et al., 2013)[^2]
+Finally, outside of the beauty and character(yes, pun intended) of Kanji. ***Readability***. As I said earlier, Kanji aren't always phonetic and will have different ways to be read. [That being said, once you start to accept the understanding that Japanese is implicitly high-context](https://japanjunky.com/understanding-japans-high-context-culture/), not understanding Kanji is no different than reading archaic words in the Classics in English, we will skip or misunderstand words, but can gather meanings purely on context. As you continue to learn and understand more Kanji and attain pattern recognition around said characters, being able to quickly read something like 私の鍵, instead of わたしのかぎ, is significantly easier. Even in English, the fastest and most comprehensive readers are considered visual readers(Lobier, et al., 2013)[^2]
 , Kanji naturally lends itself to visual reading as you aren't likely to subvocalize non-phonetic characters, and has been shown to be strongly correlated with visual reading abilities(Nakagawa, 1994)[^3].
 
 # どうやって - How Do I Start?
