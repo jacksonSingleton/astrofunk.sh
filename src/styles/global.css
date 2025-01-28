@@ -87,6 +87,10 @@ header > a {
         font-size: 1.5vw;
         line-height: 1.4vw;
     }
+    .smaller {
+        font-size: 1vw;
+        line-height: 0.9vw;
+    }
     .scrolled {
         font-size: 1.2vw;
         line-height: 1.1vw;
@@ -98,9 +102,17 @@ header > a {
         font-size: 1.3vw;
         line-height: 1.2vw;
     }
+    .smaller {
+        font-size: 0.6vw;
+        line-height: 0.5vw;
+    }
+    .smaller.scrolled {
+        font-size: 0.4vw;
+        line-height: 0.3vw;
+    }
     .scrolled {
-        font-size: 1vw;
-        line-height: 0.9vw;
+        font-size: 0.7vw;
+        line-height: 0.6vw;
     }
 }
 
