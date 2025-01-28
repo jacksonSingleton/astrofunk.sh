@@ -55,15 +55,15 @@ header > a > pre {
     line-height: 1.4vw;
     font-size: 1.5vw;
     font-family: monospace;
-    color: var(--pine);
+    color: var(--foam);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     padding: 1.5rem;
 }
 
 .smaller {
-    font-size: 0.6vw;
-    line-height: 0.5vw;
+    font-size: 0.9vw;
+    line-height: 0.8vw;
 }
 
 .scrolled {
@@ -74,8 +74,8 @@ header > a > pre {
 }
 
 .smaller.scrolled {
-    font-size: 0.5vw;
-    line-height: 0.4vw;
+    font-size: 0.8vw;
+    line-height: 0.7vw;
 }
 
 header > a {
