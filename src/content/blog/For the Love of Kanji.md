@@ -6,32 +6,34 @@ heroImage: /blogimg/51974d8c1c79985fc801097d91844083.png
 ---
 > Context: I'm a new learner to Japanese, and these are the observations I have made. This is part brain dump and part research. I was curious about the use of a logographic script in a language that contains two other scripts that are phonetic. I hope you enjoy the read.
 
-Starting my dive into Japanese towards the end of last year has been such a great time. This will be my fifth language, and first non-European language that I will have studied to reasonable depth. Japanese is so unique, beautiful, and conceptually different to the languages that I've grown up with. Even core ideas such as tense, subjects, and conjugations completely fall apart when applied with a Euro-centric mindset. However, like every other language I've learned, I've found that new learners *love* sensationalizing a few initially foreign concepts in which they completely hinge the difficulty of language learning upon. As completely anecdotal evidence,
+Starting my dive into Japanese towards the end of last year has been such a great experience. Japanese will be my fifth language and the first non-European language that I will have studied to a reasonable depth. Japanese is unique, beautiful, and conceptually different from the languages I've grown accustomed to. Even core ideas such as tense, subjects, and conjugations fall apart when applied with a Euro-centric mindset. However, like every other language I've learned, I've found that new learners love sensationalizing a few initially foreign concepts upon which they entirely hinge the difficulty of learning said language. As purely anecdotal evidence,
+
 - Spanish → Ser y Estar
 - French → 97
 - German → Komposita
 
-And last, but not least, Japanese Kanji.
+Last but not least, Japanese Kanji.
 
 ![Gloves](/blogimg/f7f3ddeb0b9dd5ab2a5c6ec3f817308a.png)
 > Der Handschuh in German = Hand Shoes, aka Gloves is an example of the Komposita at work. [Source: Unsplash](https://unsplash.com/photos/red-textile-on-white-table-5nk5mWyRDg0)
 # Problems with Learning Japanese?
 ---
-To clarify, Kanji is significantly more difficult to understand than the usage of two verbs, a few funny numbers, or conjoined words. I find that Japanese is in an interesting position for American language learners as it can be really... *useless*. I will never argue against education for the sake of education, however, if one (American english speaker) were to take a utilitarian approach to language learning, then Japanese has no room on the podium against languages like Spanish, Arabic, and Mandarin. Japanese has an immense draw to worldwide learners due to the nation's enormous cultural impact. Over the past 50 years, Japan took the world by storm with anime, video games, toys, Godzilla, and other cultural cornerstones that many hold strong emotional bonds to. This often comes a desire to deepen that cultural bond through sharing the language.
+To clarify, Kanji is significantly more difficult to understand than using two verbs, a few funny numbers, or conjoined words. I find that Japanese is in an interesting position for American language learners as it can be really… useless. I will never argue against education for the sake of education; however, if one (American English speaker) takes a utilitarian approach to language learning, then Japanese has no room on the podium against languages like Spanish, Arabic, and Mandarin. Japanese has an immense draw to worldwide learners due to the nation's enormous cultural impact. Over the past 50 years, Japan has taken the world by storm with anime, video games, toys, Godzilla, and other cultural cornerstones to which many hold strong emotional bonds. With these bonds often comes a desire to deepen cultural understanding through sharing the language.
 
-> **Yet another anecdote:** This may be a strong catalyst, however, I have yet to meet anyone who has successfully learned a language for the sole purpose of consuming media.
+> **Yet another anecdote:** This may be a strong catalyst, but I have yet to meet anyone who has successfully learned a language to consume media. Please prove me wrong.
 
 ![Gundam](/blogimg/0e4e7fcbedc4e293d2a1a8f862ea4615.png)
 > Gundam is one of many examples of the Japanese post-war entertainment powerhouse [Source: Unsplash](https://unsplash.com/photos/a-close-up-of-a-robot-suit-on-display-AkWf075If0E)
 
-The romanticization of Japanese culture and the path that one undergoes to learn the language for the sole purpose for reasons such as, \*ahem\*, __*watching anime without subtitles*__, often leads directly to Mount Stupid.
+The romanticization of Japanese culture and the path one undergoes to learn the language for the sole purpose of, \*ahem\*, __*watching anime without subtitles*__, often leads directly to Mount Stupid.
 
 ![Mount Stupid Graphic](/blogimg/85e1d673d6ae82da2d2ddb4c1c28219f.png)
 > [Source: SMBC](https://external-preview.redd.it/OD1iOC5xp-9oYnNGLBZsXFHoUMQECTl-cQPqmanRypw.jpg?auto=webp&s=d3ccb380b8a238d8a8486dfeb601405e18533675)
 
-While I myself have summited Mount Stupid many times, and will certainly make the trek once again in the very near future, making it through the trough that follows is by far, the most difficult phase of learning a new skill, or truly attaining a new pillar of topical knowledge. You once felt that you had a strong understanding of something, and by actually getting better, you feel worse?
 
-For Japanese learners, I've found the downward path forward from Mount Stupid to be marked with the introduction of Kanji.
+While I have summited Mount Stupid many times and will undoubtedly make the trek once again very soon, making it through the trough that follows is, by far, the most challenging phase of learning a new skill or truly attaining a new pillar of topical knowledge. You once felt that you had a strong understanding of something, and by actually getting better, you feel worse?
+
+For Japanese learners, I've found the downward path forward from Mount Stupid marked with the introduction of Kanji.
 
 # 漢字 - What the Hell is Even That?
 ---

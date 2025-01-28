@@ -36,7 +36,7 @@ const posts = (await getCollection("blog")).sort(
             <h1 class="hello">
                 「 <span id="helloText"></span> 」
             </h1>
-            <section>
+            <section id="blogList">
                 <ul>
                     {
                         posts.length === 0 ? (
@@ -72,7 +72,7 @@ const posts = (await getCollection("blog")).sort(
                         )
                     }
                 </ul>
-            </section>
+            </section>i
         </main>
         <Footer />
     </body>
