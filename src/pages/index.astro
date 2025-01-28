@@ -15,7 +15,21 @@ const posts = (await getCollection("blog")).sort(
 <html lang="en">
     <head>
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-QJPVFD5YTY"
+        ></script><script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-QJPVFD5YTY");
+        </script></head
+    >
+    <!-- Google tag (gtag.js) -->
+
     <body>
         <main>
             <Header />
