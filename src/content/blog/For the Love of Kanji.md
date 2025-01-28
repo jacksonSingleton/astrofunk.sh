@@ -6,16 +6,16 @@ heroImage: /blogimg/51974d8c1c79985fc801097d91844083.png
 ---
 Starting my dive into Japanese towards the end of last year has been such a great time. This will be my fifth language, and first non-European language that I will have studied to reasonable depth. Japanese is so unique, beautiful, and conceptually different to the languages that I've grown up with. Even core ideas such as tense, subjects, and conjugations completely fall apart when applied with a Euro-centric mindset. However, like every other language I've learned, I've found that new learners *love* sensationalizing a few initially foreign concepts in which they completely hinge the difficulty of language learning upon. As completely anecdotal evidence,
 - Spanish → Ser y Estar
-- French → The number 97 (Four twenty and ten seven)
+- French → 97
 - German → Komposita
 
 And last, but not least, Japanese Kanji.
 
 ![Gloves](/blogimg/f7f3ddeb0b9dd5ab2a5c6ec3f817308a.png)
 > Der Handschuh in German = Hand Shoes, aka Gloves is an example of the Komposita at work. [Source: Unsplash](https://unsplash.com/photos/red-textile-on-white-table-5nk5mWyRDg0)
-# Problem with Learning Japanese?
+# Problems with Learning Japanese?
 ---
-I find that Japanese is in an interesting position for American language learners as it can be really... *useless*. I will never argue against education for the sake of education, however, if one (American english speaker) were to take a utilitarian approach to language learning, then Japanese has no room on the podium against Spanish, French, and Mandarin. Japanese has an immense draw to worldwide learners due to the nation's enormous cultural impact. Over the past 50 years, Japan took the world by storm with anime, video games, toys, Godzilla, and other cultural cornerstones that many hold strong emotional bonds to. This often comes a desire to deepen that cultural bond through sharing the language.
+To clarify, Kanji is significantly more difficult to understand than the usage of two verbs, a few funny numbers, or conjoined words. I find that Japanese is in an interesting position for American language learners as it can be really... *useless*. I will never argue against education for the sake of education, however, if one (American english speaker) were to take a utilitarian approach to language learning, then Japanese has no room on the podium against languages like Spanish, Arabic, and Mandarin. Japanese has an immense draw to worldwide learners due to the nation's enormous cultural impact. Over the past 50 years, Japan took the world by storm with anime, video games, toys, Godzilla, and other cultural cornerstones that many hold strong emotional bonds to. This often comes a desire to deepen that cultural bond through sharing the language.
 
 > **Yet another anecdote:** This may be a strong catalyst, however, I have yet to meet anyone who has successfully learned a language for the sole purpose of consuming media.
 
@@ -33,7 +33,7 @@ For Japanese learners, I've found the downward path forward from Mount Stupid to
 
 # 漢字 - What the Hell is Even That?
 ---
-If you're not familiar with the Japanese language, characters like 漢字, 本 or 私 may just look like what you would expect Japanese to look like. And you would be absolutely correct. Over 40% of written Japanese is in Kanji(Chikamatsu, et al., 2000)[^1]. The remaining 60% of written characters is generally comprised of the two other writing systems; hiragana and katakana. Hiragana and Katakana are more similar to the phonetic latin alphabet that we've become accustomed to as English speakers. In English, we assign sounds to letters, thou***gh***, they aren't always pronounced. In Japanese, their scripts are considered [syllabaries](https://en.wikipedia.org/wiki/Syllabary). In a syllabary, each character is assigned, you guessed it, to a phonetic syllable. For example the character ち makes the sounds "chi" and will almost always make that sound when read, for example: にち is read as nichi.
+If you're not familiar with the Japanese language, characters like 漢字, 本 or 私 may just look like what you would expect Japanese to look like. And you would be absolutely correct. Over 40% of written Japanese is in Kanji(Chikamatsu, et al., 2000)[^1]. The remaining 60% of written characters is generally comprised of the two other writing systems; hiragana and katakana. Hiragana and Katakana are more similar to the phonetic latin alphabet that we've become accustomed to as English speakers. In English, we assign sounds to letters, thou***gh***, they aren't always pronounced. In Japanese, their scripts are considered [syllabaries](https://en.wikipedia.org/wiki/Syllabary). In a syllabary, each character is assigned, you guessed it, to a phonetic syllable. For example the character ち makes the sounds "chi" and will almost always make that sound when read: にち is read as nichi.
 
 Hiragana and Katakana are two scripts that represent the same sounds
 
@@ -91,7 +91,7 @@ Finally, if you like the WaniKani methodology, but prefer having your Anki revie
 
 # Conclusion
 ---
-Take the time to learn Kanji. If you're learning Japanese, don't delay Kanji study and recognition. Read with [furigana](https://en.wikipedia.org/wiki/Furigana), and start recognizing Kanji as soon as possible. If you're not learning Japanese, thank you for reading anywho, if you ever decide to learn, best of luck :)
+Take the time to learn Kanji. If you're learning Japanese, don't delay the study and recognition of Kanji. Practice reading with [furigana](https://en.wikipedia.org/wiki/Furigana), and start recognizing Kanji as soon as possible. If you're not learning Japanese, thank you for reading anywho, if you ever decide to learn, best of luck :)
 
 If you are Japanese or speak at a high level, feel free to tear this to shreds as I am at the peak of Mount Stupid currently and very much enjoying my child-like understanding of Kanji.🙂
 # Sources
