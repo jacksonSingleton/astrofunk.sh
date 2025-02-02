@@ -7,6 +7,7 @@ body {
     font-family: "Space Mono", "M PLUS 1 Code", monospace;
     margin: 0 0;
     padding: 0 0;
+    overflow-x: hidden;
 }
 :root.light {
     --base: #faf4ed;
