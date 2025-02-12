@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import { AUTHOR_NAME, AUTHOR_TITLE } from "../consts";
 import "../styles/blog.css";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -92,6 +93,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                     </div>
                     <h1>{title}</h1>
                     <hr />
+                    <div class="author">
+                        <img width={96} height={96} src="https://avatars.githubusercontent.com/u/17009633?v=4" alt="" />
+                        <div class="text-block">
+                            <p>{AUTHOR_NAME}</p>
+                            <p>{AUTHOR_TITLE}</p>
+                        </div>
+                    </div>
                 </div>
                 <slot />
             </div>

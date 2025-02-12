@@ -75,6 +75,37 @@ img {
     height: auto;
     border-radius: 8px;
 }
+
+.author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    border: 2px solid var(--pine);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.author img {
+    margin-right: 1em;
+}
+
+.author > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.author > div * {
+    margin: 2px auto;
+}
+
+.author > div :last-child {
+    font-size: 0.9em;
+    color: var(--rose);
+}
+
 code {
     padding: 2px 5px;
     background-color: var(--overlay);

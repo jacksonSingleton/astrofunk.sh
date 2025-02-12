@@ -4,3 +4,6 @@
 export const SITE_TITLE = "ASTROFUNK";
 export const SITE_DESCRIPTION =
   "musings on code, language, engineering, and life";
+
+export const AUTHOR_NAME = "Jackson Singleton";
+export const AUTHOR_TITLE = "software dev && language nerd";
