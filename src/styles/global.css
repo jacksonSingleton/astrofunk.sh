@@ -213,7 +213,7 @@ a h4 {
     color: var(--rose);
     font-size: 2rem;
     position: fixed;
-    bottom: 1rem;
+    bottom: 2rem;
     left: 1rem;
     box-shadow: 0px 6px 18px -6px var(--rose);
     border: 2px solid var(--rose);
@@ -222,6 +222,7 @@ a h4 {
     height: 4rem;
     user-select: none;
     cursor: pointer;
+    z-index: 100;
 }
 
 .lightswitch:hover {
