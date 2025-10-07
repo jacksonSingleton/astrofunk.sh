@@ -55,7 +55,7 @@ header > a {
 header > a > pre {
     line-height: 1.4vw;
     font-size: 1.5vw;
-    font-family: monospace;
+    font-family: Consolas, "Courier New", monospace;
     color: var(--foam);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
