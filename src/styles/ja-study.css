@@ -52,6 +52,70 @@ main {
     font-size: 1.5rem;
     color: var(--pine);
 }
+
+.anilist-section {
+    padding: 2rem;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.media-category {
+    margin-bottom: 3rem;
+}
+
+.media-category h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--gold);
+}
+
+.media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+}
+
+.media-card {
+    width: 100%;
+    max-width: 200px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.media-card:hover {
+    transform: translateY(-4px);
+}
+
+.media-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.media-title {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--text);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .media-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 1rem;
+    }
+}
 h1,
 h2,
 h3,
