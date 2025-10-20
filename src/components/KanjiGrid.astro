@@ -1,0 +1,143 @@
+---
+import "../styles/kanji.css";
+
+const {
+    src = "/kanji.json",
+    interval = 100,
+    includeUnseen = true,
+    cell = 36,
+    gap = 2,
+    sortBy = "score",
+} = Astro.props;
+---
+
+<div class="kg-wrap" style={`--cell:${cell}px; --gap:${gap}px;`}>
+    <div class="kg-header" id="kg-header">Loading…</div>
+    <div
+        class="kg-grid"
+        data-src={src}
+        data-interval={interval}
+        data-include-unseen={String(includeUnseen)}
+        data-sort={sortBy}
+    >
+    </div>
+</div>
+
+<script is:inline>
+    (async () => {
+        const wrap = document.currentScript.previousElementSibling;
+        const header = wrap.querySelector("#kg-header");
+        const grid = wrap.querySelector(".kg-grid");
+
+        const src = grid.dataset.src || "/data/kanji.json";
+        const interval = Number(grid.dataset.interval || 100);
+        const includeUnseen = grid.dataset.includeUnseen === "true";
+        const sortBy = grid.dataset.sort || "score";
+
+        const score = (r) => {
+            const raw = r.metric / (interval || 1);
+            const s = raw + 1;
+            return 1 - 1 / (s * s);
+        };
+
+        const sortRows = (rows, key) => {
+            switch (key) {
+                case "score":
+                    return rows.sort(
+                        (a, b) =>
+                            score(b) - score(a) ||
+                            a.char.localeCompare(b.char, "ja"),
+                    );
+                case "reviews":
+                    return rows.sort(
+                        (a, b) =>
+                            b.reviews - a.reviews ||
+                            a.char.localeCompare(b.char, "ja"),
+                    );
+                case "lapses":
+                    return rows.sort(
+                        (a, b) =>
+                            b.lapses - a.lapses ||
+                            a.char.localeCompare(b.char, "ja"),
+                    );
+                case "metric":
+                    return rows.sort(
+                        (a, b) =>
+                            b.metric - a.metric ||
+                            a.char.localeCompare(b.char, "ja"),
+                    );
+                case "unicode":
+                default:
+                    return rows.sort((a, b) =>
+                        a.char.localeCompare(b.char, "ja"),
+                    );
+            }
+        };
+
+        function bucketClass(scoreVal, min, max, reviews) {
+            if (reviews <= 0) return "unseen";
+            const t = max > min ? (scoreVal - min) / (max - min) : scoreVal;
+            if (t >= 0.8) return "foam";
+            if (t >= 0.6) return "pine";
+            if (t >= 0.4) return "gold";
+            if (t >= 0.2) return "rose";
+            return "love";
+        }
+
+        function parse(units) {
+            const out = [];
+            for (const [key, arr] of Object.entries(units || {})) {
+                out.push({
+                    key,
+                    char: Array.isArray(arr) ? (arr[1] ?? key) : key,
+                    metric: Array.isArray(arr) ? Number(arr[2] ?? 0) : 0,
+                    reviews: Array.isArray(arr) ? Number(arr[3] ?? 0) : 0,
+                    lapses: Array.isArray(arr) ? Number(arr[4] ?? 0) : 0,
+                    ts: Array.isArray(arr) ? arr[0] : null,
+                });
+            }
+            return out;
+        }
+
+        try {
+            const res = await fetch(src, { cache: "no-store" });
+            if (!res.ok) throw new Error(res.status + " loading " + src);
+            const json = await res.json();
+
+            let rows = parse(json.units);
+            if (!includeUnseen) rows = rows.filter((r) => r.reviews > 0);
+
+            const known = rows.filter((r) => r.reviews > 0).length;
+            header.textContent = `${known} Known Kanji`;
+
+            const vals = rows
+                .filter((r) => r.reviews > 0)
+                .map(score)
+                .filter(Number.isFinite);
+            const rangeMin = Math.min(...vals, 0);
+            const rangeMax = Math.max(...vals, 1);
+
+            sortRows(rows, sortBy);
+
+            requestAnimationFrame(() => {
+                const html = rows
+                    .map((r) => {
+                        const scoreVal = score(r);
+                        const cls = bucketClass(
+                            scoreVal,
+                            rangeMin,
+                            rangeMax,
+                            r.reviews,
+                        );
+                        return `<div class="tile ${cls}"><span>${r.char}</span></div>`;
+                    })
+                    .join("");
+
+                grid.innerHTML = html;
+            });
+        } catch (e) {
+            header.textContent = "Failed to load kanji data";
+            console.error(e);
+        }
+    })();
+</script>

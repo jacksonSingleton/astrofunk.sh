@@ -158,6 +158,25 @@ main {
     width: 100%;
 }
 
+.navigation {
+    display: flex;
+}
+
+.navigation > a {
+    background: var(--overlay);
+    padding: 1rem 2rem;
+    border: 2px solid var(--gold);
+    border-radius: 16px;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    color: var(--foam);
+}
+
+.navigation > a:hover {
+    background: color-mix(in srgb, var(--overlay), var(--rose) 10%);
+}
+
 #blogList {
     display: flex;
     flex-direction: column;

@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import KanjiGrid from "../components/KanjiGrid.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -36,6 +37,9 @@ const posts = (await getCollection("blog")).sort(
             <h1 class="hello">
                 「 <span id="helloText"></span> 」
             </h1>
+            <section class="navigation">
+                <a class="nav-item" href="ja-study">🇯🇵 Japanese Progress</a>
+            </section>
             <section id="blogList">
                 <ul>
                     {
@@ -81,5 +85,5 @@ const posts = (await getCollection("blog")).sort(
 <script is:inline>
     const welcome = ["buenas", "howdy", "salut", "じゃあね"];
     document.getElementById("helloText").textContent =
-        welcome[Math.floor(Math.random() * welcome.length)];
+        `${welcome[Math.floor(Math.random() * welcome.length)]} 👋`;
 </script>

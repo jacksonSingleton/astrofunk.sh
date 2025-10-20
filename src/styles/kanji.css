@@ -1,0 +1,79 @@
+.kg-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.kg-rule {
+    width: 100%;
+    border: none;
+    border-top: 2px dashed color-mix(in srgb, var(--text), transparent 40%);
+    margin: 0.25rem 0;
+}
+
+.kg-header {
+    color: var(--rose);
+    letter-spacing: 0.3px;
+    text-align: center;
+}
+
+.kg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--cell));
+    grid-auto-rows: var(--cell);
+    gap: var(--gap);
+    justify-content: center;
+    width: min(1220px, 95vw);
+    margin: 0 auto;
+}
+
+.tile {
+    width: var(--cell);
+    height: var(--cell);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.8);
+    line-height: 1;
+    font-size: calc(var(--cell) * 0.55);
+    font-weight: 400;
+    user-select: none;
+    cursor: default;
+}
+
+.tile span {
+    transform: translateY(1px);
+}
+
+.foam {
+    background: var(--foam);
+    color: var(--base);
+}
+
+.pine {
+    background: var(--pine);
+    color: var(--base);
+}
+
+.gold {
+    background: var(--gold);
+    color: var(--base);
+}
+
+.rose {
+    background: var(--rose);
+    color: var(--base);
+}
+
+.love {
+    background: var(--love);
+    color: var(--base);
+}
+
+.unseen {
+    background: var(--overlay);
+    color: var(--text);
+}
