@@ -151,7 +151,7 @@ const totalHours = calculateTutoringHours();
             // Fetch games from CSV
             async function fetchGames() {
                 try {
-                    const response = await fetch("/data/playing.csv");
+                    const response = await fetch("/data/playing_fr.csv");
                     if (!response.ok) return [];
 
                     const csvText = await response.text();

@@ -40,6 +40,7 @@ export const GET: APIRoute = async () => {
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
+    console.error("Hardcover error:", error);
     return new Response(
       JSON.stringify({ error: "Failed to fetch books from Hardcover" }),
       {
