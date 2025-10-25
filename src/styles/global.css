@@ -171,6 +171,7 @@ main {
     user-select: none;
     text-decoration: none;
     color: var(--foam);
+    margin: 1rem;
 }
 
 .navigation > a:hover {

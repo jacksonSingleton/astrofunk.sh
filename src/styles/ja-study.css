@@ -43,14 +43,14 @@ main {
 }
 
 .tutoring-hours {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: bold;
     color: var(--love);
 }
 
 .tutoring-label {
     font-size: 1.5rem;
-    color: var(--pine);
+    color: var(--foam);
 }
 
 .anilist-section {
