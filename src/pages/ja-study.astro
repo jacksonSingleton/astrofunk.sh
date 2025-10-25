@@ -206,18 +206,29 @@ const totalHours = calculateTutoringHours();
                     });
                     
                     // Fetch cover images from proxy
-                    const gameIds = games.map(g => g.id).join(',');
-                    try {
-                        const coversResponse = await fetch(`/api/igdb-covers.json?ids=${gameIds}`);
-                        if (coversResponse.ok) {
-                            const covers = await coversResponse.json();
-                            return games.map(game => ({
-                                ...game,
-                                coverImage: covers[game.id] || game.coverImage
-                            }));
+                    const gameIds = games.map(g => g.id).filter(id => id).join(',');
+                    console.log('Game IDs:', gameIds);
+                    
+                    if (gameIds) {
+                        try {
+                            const coversResponse = await fetch('/api/igdb-covers', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ ids: gameIds })
+                            });
+                            if (coversResponse.ok) {
+                                const covers = await coversResponse.json();
+                                return games.map(game => ({
+                                    ...game,
+                                    coverImage: covers[game.id] || game.coverImage
+                                }));
+                            } else {
+                                const error = await coversResponse.text();
+                                console.error('Failed to fetch covers:', error);
+                            }
+                        } catch (error) {
+                            console.error('Failed to fetch covers:', error);
                         }
-                    } catch (error) {
-                        console.error('Failed to fetch covers:', error);
                     }
                     
                     return games;
