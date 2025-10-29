@@ -31,6 +31,21 @@ function calculateTutoringHours() {
 }
 
 const totalHours = calculateTutoringHours();
+
+// Textbook data
+const textbooks = [
+    { title: "Genki I", completion: 100, cover: "/textbooks/japanese/genki_1.jpg" },
+    { title: "Genki II", completion: 100, cover: "/textbooks/japanese/genki_2.jpg" },
+    { title: "Japanese for Young People I", completion: 100, cover: "/textbooks/japanese/jyp_1.jpg" },
+    { title: "Japanese for Young People II", completion: 100, cover: "/textbooks/japanese/jyp_2.jpg" },
+    { title: "Japanese for Young People III", completion: 100, cover: "/textbooks/japanese/jyp_3.jpeg" },
+    { title: "Quartet 1", completion: 10, cover: "/textbooks/japanese/quartet_1.png" },
+    { title: "Shin Kanzen Master N3 - Reading", completion: 15, cover: "/textbooks/japanese/skm_n3_reading.jpg" },
+    { title: "Shin Kanzen Master N3 - Grammar", completion: 15, cover: "/textbooks/japanese/skm_n3_grammar.jpg" },
+    { title: "Shin Kanzen Master N3 - Listening", completion: 10, cover: "/textbooks/japanese/skm_n3_listening.jpg" },
+    { title: "Shin Kanzen Master N3 - Kanji", completion: 5, cover: "/textbooks/japanese/skm_n3_kanji.JPG" },
+    { title: "Shin Kanzen Master N3 - Vocabulary", completion: 25, cover: "/textbooks/japanese/skm_n3_vocabulary.jpg" },
+].sort((a, b) => a.completion - b.completion);
 ---
 
 <html lang="en">
@@ -74,6 +89,26 @@ const totalHours = calculateTutoringHours();
                         </div>
                         <div class="tutoring-label">Words Known</div>
                     </div>
+                </div>
+            </div>
+
+            <div class="textbook-section">
+                <h2>Textbooks</h2>
+                <div class="textbook-list">
+                    {textbooks.map((book) => (
+                        <div class="textbook-row">
+                            {book.cover && (
+                                <img src={book.cover} alt={book.title} class="textbook-cover" loading="lazy" />
+                            )}
+                            <div class="textbook-info">
+                                <span class="textbook-title">{book.title}</span>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style={`width: ${book.completion}%`}></div>
+                                    <span class="progress-text">{book.completion}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
