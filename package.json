@@ -4,9 +4,11 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/build-kanji-graph.js",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build-graph": "node scripts/build-kanji-graph.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.7",

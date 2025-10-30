@@ -1,0 +1,393 @@
+---
+import "../styles/kanji.css";
+
+const {
+    src = "/kanji-graph.json",
+    width = 1200,
+    height = 800,
+} = Astro.props;
+---
+
+<div class="kg-wrap">
+    <div class="kg-stats-bar">
+        <div class="stat-item">
+            <span class="stat-label">Known Kanji</span>
+            <span class="stat-value" id="known-count">—</span>
+        </div>
+    </div>
+    <div class="kg-graph-container">
+        <div 
+            id="kanji-graph-container" 
+            data-width={width}
+            data-height={height}
+            data-src={src}
+        ></div>
+        <div id="kanji-tooltip" class="kanji-tooltip"></div>
+    </div>
+</div>
+
+<style>
+    .kg-stats-bar {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 2rem;
+        margin: 0;
+        margin-bottom: -1rem;
+        max-width: 1200px;
+        background: var(--overlay);
+        border-radius: 12px 12px 0 0;
+        border: 1px solid rgba(156, 207, 216, 0.15);
+        border-bottom: none;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        font-weight: 500;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--foam);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .kg-graph-container {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto 2rem;
+        background: var(--surface);
+        border-radius: 0 0 12px 12px;
+        overflow: hidden;
+        box-shadow: 
+            0 4px 6px -1px rgba(0, 0, 0, 0.3),
+            0 2px 4px -1px rgba(0, 0, 0, 0.2),
+            0 0 0 1px rgba(156, 207, 216, 0.1);
+        border: 1px solid rgba(156, 207, 216, 0.15);
+    }
+
+    #kanji-graph-container {
+        width: 100%;
+        height: 800px;
+        cursor: default;
+    }
+    
+    #kanji-graph-container canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .kanji-tooltip {
+        position: absolute;
+        background: var(--overlay);
+        border: 1px solid var(--subtle);
+        border-radius: 4px;
+        padding: 0.5rem;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s;
+        z-index: 10;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+
+    .kanji-tooltip.visible {
+        opacity: 1;
+    }
+
+    .tooltip-char {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    .tooltip-meanings {
+        color: var(--muted);
+        font-size: 0.85rem;
+    }
+
+    .tooltip-stats {
+        margin-top: 0.25rem;
+        font-size: 0.8rem;
+        color: var(--subtle);
+    }
+</style>
+
+<script is:inline>
+    // Load Pixi.js dynamically then initialize graph
+    (async () => {
+        // Load Pixi.js
+        if (typeof PIXI === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/pixi.js@7/dist/pixi.min.js';
+            document.head.appendChild(script);
+            
+            await new Promise((resolve, reject) => {
+                script.onload = resolve;
+                script.onerror = reject;
+            });
+        }
+        
+        const container = document.getElementById('kanji-graph-container');
+        const knownCountEl = document.getElementById('known-count');
+        const tooltip = document.getElementById('kanji-tooltip');
+        
+        const src = container.dataset.src;
+        const width = parseInt(container.dataset.width);
+        const height = parseInt(container.dataset.height);
+        
+        // Color palette - we'll use position-based gradient
+        const unseenColor = 0x6e6a86; // gray for unseen
+        
+        // Helper to convert HSL to RGB hex
+        function hslToHex(h, s, l) {
+            const a = s * Math.min(l, 1 - l);
+            const f = (n) => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+                return Math.round(255 * color);
+            };
+            return (f(0) << 16) | (f(8) << 8) | f(4);
+        }
+
+        try {
+            // Initialize Pixi.js application
+            const app = new PIXI.Application({
+                width,
+                height,
+                backgroundColor: 0x191724,
+                antialias: true,
+                resolution: window.devicePixelRatio || 1,
+                autoDensity: true,
+            });
+            
+            container.appendChild(app.view);
+
+            // Fetch graph data
+            const res = await fetch(src, { cache: 'no-store' });
+            if (!res.ok) throw new Error(`${res.status} loading ${src}`);
+            const graphData = await res.json();
+
+            const knownCount = graphData.nodes.filter(n => n.reviews > 0).length;
+            
+            // Update stats bar
+            knownCountEl.textContent = knownCount.toLocaleString();
+
+            console.log(`Rendering ${graphData.nodes.length} nodes and ${graphData.edges.length} edges`);
+
+            const nodes = graphData.nodes;
+            const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+            // Create graphics container
+            const graphics = new PIXI.Graphics();
+            app.stage.addChild(graphics);
+
+            // Draw edges
+            graphics.lineStyle(1, 0x6e6a86, 0.15);
+            for (const edge of graphData.edges) {
+                const source = nodeMap.get(edge.s);
+                const target = nodeMap.get(edge.t);
+                if (source && target) {
+                    graphics.moveTo(source.x, source.y);
+                    graphics.lineTo(target.x, target.y);
+                }
+            }
+
+            // Create node sprites
+            const nodeSprites = [];
+            
+            // Calculate size range based on scores
+            const scores = nodes.filter(n => n.reviews > 0).map(n => n.score);
+            const minScore = Math.min(...scores, 0);
+            const maxScore = Math.max(...scores, 1);
+            
+            for (const node of nodes) {
+                // Size based on score (knowledge strength)
+                let radius;
+                if (node.reviews <= 0) {
+                    radius = 6; // Small for unseen
+                } else {
+                    // Map score to radius (6-16px range)
+                    const normalizedScore = maxScore > minScore 
+                        ? (node.score - minScore) / (maxScore - minScore) 
+                        : 0.5;
+                    radius = 6 + normalizedScore * 10;
+                }
+                
+                // Color based on position + score for visual interest
+                let color;
+                if (node.reviews <= 0) {
+                    color = unseenColor;
+                } else {
+                    // Create gradient based on position (hue) and score (lightness)
+                    const hue = ((node.x / width) * 180 + 160) % 360; // Cyan to pink range
+                    const normalizedScore = maxScore > minScore 
+                        ? (node.score - minScore) / (maxScore - minScore) 
+                        : 0.5;
+                    const lightness = 0.55 + normalizedScore * 0.15; // Brighter = better
+                    const saturation = 0.5;
+                    color = hslToHex(hue, saturation, lightness);
+                }
+                
+                // Create circle graphic
+                const circle = new PIXI.Graphics();
+                circle.beginFill(color);
+                circle.drawCircle(0, 0, radius);
+                circle.endFill();
+                
+                // Create text - scale with node size
+                const fontSize = Math.max(10, radius * 1.1);
+                const text = new PIXI.Text(node.char, {
+                    fontFamily: 'sans-serif',
+                    fontSize: fontSize,
+                    fontWeight: 'bold',
+                    fill: 0x191724,
+                    align: 'center'
+                });
+                text.anchor.set(0.5);
+                
+                // Combine into container
+                const nodeContainer = new PIXI.Container();
+                nodeContainer.addChild(circle);
+                nodeContainer.addChild(text);
+                nodeContainer.x = node.x;
+                nodeContainer.y = node.y;
+                nodeContainer.interactive = true;
+                nodeContainer.buttonMode = true;
+                nodeContainer.hitArea = new PIXI.Circle(0, 0, radius + 5);
+                
+                // Store node data
+                nodeContainer.nodeData = node;
+                
+                // Hover events
+                nodeContainer.on('pointerover', () => {
+                    tooltip.innerHTML = `
+                        <div class="tooltip-char">${node.char}</div>
+                        <div class="tooltip-meanings">${node.meanings.slice(0, 3).join(', ') || 'No meaning'}</div>
+                        <div class="tooltip-stats">Reviews: ${node.reviews} | Score: ${(node.score * 100).toFixed(0)}%</div>
+                    `;
+                    tooltip.classList.add('visible');
+                });
+                
+                nodeContainer.on('pointerout', () => {
+                    tooltip.classList.remove('visible');
+                });
+                
+                nodeContainer.on('pointermove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    tooltip.style.left = `${e.data.global.x - rect.left + 10}px`;
+                    tooltip.style.top = `${e.data.global.y - rect.top + 10}px`;
+                });
+                
+                app.stage.addChild(nodeContainer);
+                nodeSprites.push(nodeContainer);
+            }
+
+            // Add gentle sinusoidal floating animation
+            let time = 0;
+            app.ticker.add(() => {
+                time += 0.01;
+                
+                nodeSprites.forEach((sprite, i) => {
+                    const node = sprite.nodeData;
+                    // Each node has its own phase offset for organic movement
+                    const phaseX = i * 0.5;
+                    const phaseY = i * 0.7;
+                    
+                    // Gentle sine wave movement (3-4px radius)
+                    const offsetX = Math.sin(time + phaseX) * 3;
+                    const offsetY = Math.cos(time + phaseY) * 3;
+                    
+                    sprite.x = node.x + offsetX;
+                    sprite.y = node.y + offsetY;
+                });
+            });
+
+            // Add pan and zoom controls with initial zoom out
+            let isDragging = false;
+            let dragStart = { x: 0, y: 0 };
+            let scale = 0.9; // Start zoomed out
+            
+            // Center the scaled content
+            const scaledWidth = width * scale;
+            const scaledHeight = height * scale;
+            let panX = (width - scaledWidth) / 2;
+            let panY = (height - scaledHeight) / 2;
+            
+            // Apply initial scale and position
+            app.stage.scale.set(scale);
+            app.stage.position.set(panX, panY);
+
+            app.stage.interactive = true;
+            app.stage.hitArea = new PIXI.Rectangle(0, 0, width, height);
+
+            app.stage.on('pointerdown', (e) => {
+                isDragging = true;
+                dragStart = { x: e.data.global.x - panX, y: e.data.global.y - panY };
+            });
+
+            app.stage.on('pointermove', (e) => {
+                if (isDragging) {
+                    panX = e.data.global.x - dragStart.x;
+                    panY = e.data.global.y - dragStart.y;
+                    app.stage.position.set(panX, panY);
+                }
+            });
+
+            app.stage.on('pointerup', () => {
+                isDragging = false;
+            });
+
+            app.stage.on('pointerupoutside', () => {
+                isDragging = false;
+            });
+
+            // Zoom with mouse wheel
+            app.view.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const delta = -e.deltaY * 0.001;
+                const newScale = Math.max(0.5, Math.min(3, scale * (1 + delta)));
+                
+                // Zoom toward mouse position
+                const mouseX = e.offsetX;
+                const mouseY = e.offsetY;
+                
+                panX = mouseX - (mouseX - panX) * (newScale / scale);
+                panY = mouseY - (mouseY - panY) * (newScale / scale);
+                
+                scale = newScale;
+                app.stage.scale.set(scale);
+                app.stage.position.set(panX, panY);
+            });
+
+            // Double-click to reset view
+            app.view.addEventListener('dblclick', () => {
+                scale = 0.9; // Reset to initial zoom level
+                const scaledWidth = width * scale;
+                const scaledHeight = height * scale;
+                panX = (width - scaledWidth) / 2;
+                panY = (height - scaledHeight) / 2;
+                app.stage.scale.set(scale);
+                app.stage.position.set(panX, panY);
+            });
+
+        } catch (e) {
+            knownCountEl.textContent = '—';
+            console.error('Failed to load graph data:', e);
+        }
+    })();
+</script>
