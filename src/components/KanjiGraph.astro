@@ -209,6 +209,8 @@ const {
 
             // Create node sprites
             const nodeSprites = [];
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            let activeNode = null; // Track active tooltip on mobile
             
             // Calculate size range based on scores
             const scores = nodes.filter(n => n.reviews > 0).map(n => n.score);
@@ -273,49 +275,77 @@ const {
                 // Store node data
                 nodeContainer.nodeData = node;
                 
-                // Hover events
-                nodeContainer.on('pointerover', () => {
-                    tooltip.innerHTML = `
-                        <div class="tooltip-char">${node.char}</div>
-                        <div class="tooltip-meanings">${node.meanings.slice(0, 3).join(', ') || 'No meaning'}</div>
-                        <div class="tooltip-stats">Reviews: ${node.reviews} | Score: ${(node.score * 100).toFixed(0)}%</div>
-                    `;
-                    tooltip.classList.add('visible');
-                });
-                
-                nodeContainer.on('pointerout', () => {
-                    tooltip.classList.remove('visible');
-                });
-                
-                nodeContainer.on('pointermove', (e) => {
-                    const rect = container.getBoundingClientRect();
-                    tooltip.style.left = `${e.data.global.x - rect.left + 10}px`;
-                    tooltip.style.top = `${e.data.global.y - rect.top + 10}px`;
-                });
+                // Tooltip events - different behavior for mobile vs desktop
+                if (isMobile) {
+                    // Mobile: tap to toggle tooltip
+                    nodeContainer.on('pointerdown', (e) => {
+                        e.stopPropagation();
+                        
+                        if (activeNode === nodeContainer) {
+                            // Tap again to close
+                            tooltip.classList.remove('visible');
+                            activeNode = null;
+                        } else {
+                            // Show tooltip
+                            tooltip.innerHTML = `
+                                <div class="tooltip-char">${node.char}</div>
+                                <div class="tooltip-meanings">${node.meanings.slice(0, 3).join(', ') || 'No meaning'}</div>
+                                <div class="tooltip-stats">Reviews: ${node.reviews} | Score: ${(node.score * 100).toFixed(0)}%</div>
+                            `;
+                            const rect = container.getBoundingClientRect();
+                            tooltip.style.left = `${e.data.global.x - rect.left + 10}px`;
+                            tooltip.style.top = `${e.data.global.y - rect.top + 10}px`;
+                            tooltip.classList.add('visible');
+                            activeNode = nodeContainer;
+                        }
+                    });
+                } else {
+                    // Desktop: hover to show tooltip
+                    nodeContainer.on('pointerover', () => {
+                        tooltip.innerHTML = `
+                            <div class="tooltip-char">${node.char}</div>
+                            <div class="tooltip-meanings">${node.meanings.slice(0, 3).join(', ') || 'No meaning'}</div>
+                            <div class="tooltip-stats">Reviews: ${node.reviews} | Score: ${(node.score * 100).toFixed(0)}%</div>
+                        `;
+                        tooltip.classList.add('visible');
+                    });
+                    
+                    nodeContainer.on('pointerout', () => {
+                        tooltip.classList.remove('visible');
+                    });
+                    
+                    nodeContainer.on('pointermove', (e) => {
+                        const rect = container.getBoundingClientRect();
+                        tooltip.style.left = `${e.data.global.x - rect.left + 10}px`;
+                        tooltip.style.top = `${e.data.global.y - rect.top + 10}px`;
+                    });
+                }
                 
                 app.stage.addChild(nodeContainer);
                 nodeSprites.push(nodeContainer);
             }
 
-            // Add gentle sinusoidal floating animation
-            let time = 0;
-            app.ticker.add(() => {
-                time += 0.01;
-                
-                nodeSprites.forEach((sprite, i) => {
-                    const node = sprite.nodeData;
-                    // Each node has its own phase offset for organic movement
-                    const phaseX = i * 0.5;
-                    const phaseY = i * 0.7;
+            // Add gentle sinusoidal floating animation (disabled on mobile for performance)
+            if (!isMobile) {
+                let time = 0;
+                app.ticker.add(() => {
+                    time += 0.01;
                     
-                    // Gentle sine wave movement (3-4px radius)
-                    const offsetX = Math.sin(time + phaseX) * 3;
-                    const offsetY = Math.cos(time + phaseY) * 3;
-                    
-                    sprite.x = node.x + offsetX;
-                    sprite.y = node.y + offsetY;
+                    nodeSprites.forEach((sprite, i) => {
+                        const node = sprite.nodeData;
+                        // Each node has its own phase offset for organic movement
+                        const phaseX = i * 0.5;
+                        const phaseY = i * 0.7;
+                        
+                        // Gentle sine wave movement (3-4px radius)
+                        const offsetX = Math.sin(time + phaseX) * 3;
+                        const offsetY = Math.cos(time + phaseY) * 3;
+                        
+                        sprite.x = node.x + offsetX;
+                        sprite.y = node.y + offsetY;
+                    });
                 });
-            });
+            }
 
             // Add pan and zoom controls with initial zoom out
             let isDragging = false;
@@ -336,6 +366,12 @@ const {
             app.stage.hitArea = new PIXI.Rectangle(0, 0, width, height);
 
             app.stage.on('pointerdown', (e) => {
+                // Close tooltip on mobile when clicking background
+                if (isMobile && activeNode) {
+                    tooltip.classList.remove('visible');
+                    activeNode = null;
+                }
+                
                 isDragging = true;
                 dragStart = { x: e.data.global.x - panX, y: e.data.global.y - panY };
             });
