@@ -98,7 +98,7 @@ const textbooks = [
                     {textbooks.map((book) => (
                         <div class={`textbook-row ${book.completion === 100 ? 'completed' : ''}`}>
                             {book.completion === 100 && (
-                                <div class="completion-badge">〆</div>
+                                <div class="completion-badge">完了</div>
                             )}
                             {book.cover && (
                                 <img src={book.cover} alt={book.title} class="textbook-cover" loading="lazy" />

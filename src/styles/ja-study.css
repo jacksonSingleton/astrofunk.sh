@@ -91,10 +91,10 @@ main {
 
 .completion-badge {
     position: absolute;
-    right: -3rem;
+    right: -2rem;
     top: 40%;
     transform: translateY(-50%);
-    font-size:  16rem;
+    font-size:  8rem;
     font-weight: bold;
     color: var(--pine);
     opacity: 0.08;
