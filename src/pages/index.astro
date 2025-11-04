@@ -37,11 +37,27 @@ const posts = (await getCollection("blog")).sort(
             <h1 class="hello">
                 「 <span id="helloText"></span> 」
             </h1>
-            <section class="navigation">
-                <a class="nav-item" href="ja-study">🇯🇵 Japanese Progress</a>
-                <a class="nav-item" href="fr-study">🇫🇷 French Progress</a>
+            <section class="study-section">
+                <h2 class="section-title">Language Learning</h2>
+                <div class="study-grid">
+                    <a href="ja-study" class="study-block ja-block">
+                        <div class="block-bg">日本語</div>
+                        <div class="block-content">
+                            <div class="block-label">Japanese</div>
+                            <div class="block-subtitle">View Progress →</div>
+                        </div>
+                    </a>
+                    <a href="fr-study" class="study-block fr-block">
+                        <div class="block-bg">FRANÇAIS</div>
+                        <div class="block-content">
+                            <div class="block-label">French</div>
+                            <div class="block-subtitle">View Progress →</div>
+                        </div>
+                    </a>
+                </div>
             </section>
             <section id="blogList">
+                <h2 class="section-title">Blogs</h2>
                 <ul>
                     {
                         posts.length === 0 ? (
@@ -84,7 +100,7 @@ const posts = (await getCollection("blog")).sort(
 </html>
 
 <script is:inline>
-    const welcome = ["buenas", "howdy", "salut", "おつかれさま～"];
+    const welcome = ["buenas", "howdy", "salut", "おつかれ"];
     document.getElementById("helloText").textContent =
         `${welcome[Math.floor(Math.random() * welcome.length)]} 👋`;
 </script>
