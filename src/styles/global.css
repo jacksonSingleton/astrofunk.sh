@@ -10,37 +10,31 @@ body {
     overflow-x: clip;
 }
 :root.light {
-    --base: #ffffff;
-    --surface: #f8f8fc;
-    --overlay: #e0e0e8;
-    --text: #1a1a2e;
-    --muted: #4a4a60;
-    --subtle: #808090;
-    --rose: #e6005c;
-    --pine: #0088aa;
-    --foam: #00aa88;
-    --gold: #dd8800;
-    --love: #cc0055;
-    --neon-cyan: #00aaaa;
-    --neon-pink: #aa00aa;
-    --neon-blue: #0055aa;
+    --base: #faf4ed;
+    --surface: #fffaf3;
+    --overlay: #f2e9e1;
+    --text: #575279;
+    --muted: #9893a5;
+    --subtle: #6e6a86;
+    --rose: #d7827e;
+    --pine: #286983;
+    --foam: #56949f;
+    --gold: #ea9d34;
+    --love: #b4637a;
 }
 
 :root.dark {
-    --base: #0a0a0f;
-    --surface: #12121a;
-    --overlay: #1a1a26;
-    --text: #e0e0ff;
-    --muted: #8080a0;
-    --subtle: #404060;
-    --rose: #ff6b9d;
-    --pine: #00d9ff;
-    --foam: #00ffcc;
-    --gold: #ffcc00;
-    --love: #ff0080;
-    --neon-cyan: #00ffff;
-    --neon-pink: #ff00ff;
-    --neon-blue: #0080ff;
+    --base: #191724;
+    --surface: #1f1d2e;
+    --overlay: #26233a;
+    --text: #e0def4;
+    --muted: #6e6a86;
+    --subtle: #908caa;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --gold: #f6c177;
+    --love: #eb6f92;
 }
 
 header {
