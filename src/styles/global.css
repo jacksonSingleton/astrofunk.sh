@@ -200,11 +200,9 @@ main {
     border: 2px solid var(--subtle);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
 }
 
 .study-block:hover {
-    transform: translateY(-6px) rotate(-1deg);
     box-shadow: 6px 6px 0 var(--overlay);
 }
 
