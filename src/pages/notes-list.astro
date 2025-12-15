@@ -1,0 +1,47 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
+
+const notes = await getCollection("notes");
+
+
+---
+<html lang="en">
+    <BaseHead title={"notes"}
+        description={"list of notes"}
+    />
+    <Header />
+<style>
+    ul {
+        padding: 1.5rem;
+    }
+    li {
+              margin-bottom: 0.5rem;
+              }
+              a {
+              color: var(--gold);
+              font-size: 1.25rem;
+              }
+              a:hover {
+              color: var(--rose);
+              }
+              a:visited {
+              color: var(--pine);
+              }
+              a:visited:hover {
+                color: var(--foam);
+              }
+    </style>
+        <body>
+            <ul>
+                {notes.map((note) => (
+                    <li>
+                        <a href={`/notes/${note.id}`}>
+                            {note.id}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+    </body>
+</html>

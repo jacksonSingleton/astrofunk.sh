@@ -1,0 +1,212 @@
+/* Obsidian-style Callouts */
+[data-callout] {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    background: var(--overlay);
+}
+
+[data-callout-title] {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1.1em;
+}
+
+[data-callout-title]:only-child {
+    margin-bottom: 0;
+}
+
+[data-callout-body] {
+    margin-top: 0.5rem;
+}
+
+[data-callout-body] > *:first-child {
+    margin-top: 0;
+}
+
+[data-callout-body] > *:last-child {
+    margin-bottom: 0;
+}
+
+[data-callout-body] hr {
+    border: none;
+    border-top: 1px solid currentColor;
+    opacity: 0.3;
+    margin: 1rem 0;
+}
+
+/* Note callout (default) */
+[data-callout][data-callout-type="note"] {
+    border-color: var(--foam);
+    background: color-mix(in srgb, var(--foam), transparent 90%);
+}
+
+[data-callout][data-callout-type="note"] [data-callout-title] {
+    color: var(--foam);
+}
+
+[data-callout][data-callout-type="note"] [data-callout-title]:empty::after {
+    content: "Note";
+}
+
+/* Info callout */
+[data-callout][data-callout-type="info"] {
+    border-color: var(--pine);
+    background: color-mix(in srgb, var(--pine), transparent 90%);
+}
+
+[data-callout][data-callout-type="info"] [data-callout-title] {
+    color: var(--pine);
+}
+
+[data-callout][data-callout-type="info"] [data-callout-title]:empty::after {
+    content: "Info";
+}
+
+/* Example callout */
+[data-callout][data-callout-type="example"] {
+    border-color: var(--gold);
+    background: color-mix(in srgb, var(--gold), transparent 90%);
+}
+
+[data-callout][data-callout-type="example"] [data-callout-title] {
+    color: var(--gold);
+}
+
+[data-callout][data-callout-type="example"] [data-callout-title]:empty::after {
+    content: "Example";
+}
+
+/* Warning callout */
+[data-callout][data-callout-type="warning"] {
+    border-color: var(--gold);
+    background: color-mix(in srgb, var(--gold), transparent 90%);
+}
+
+[data-callout][data-callout-type="warning"] [data-callout-title] {
+    color: var(--gold);
+}
+
+[data-callout][data-callout-type="warning"] [data-callout-title]:empty::after {
+    content: "Warning";
+}
+
+/* Tip callout */
+[data-callout][data-callout-type="tip"] {
+    border-color: var(--foam);
+    background: color-mix(in srgb, var(--foam), transparent 90%);
+}
+
+[data-callout][data-callout-type="tip"] [data-callout-title] {
+    color: var(--foam);
+}
+
+[data-callout][data-callout-type="tip"] [data-callout-title]:empty::after {
+    content: "Tip";
+}
+
+/* Important callout */
+[data-callout][data-callout-type="important"] {
+    border-color: var(--love);
+    background: color-mix(in srgb, var(--love), transparent 90%);
+}
+
+[data-callout][data-callout-type="important"] [data-callout-title] {
+    color: var(--love);
+}
+
+[data-callout][data-callout-type="important"] [data-callout-title]:empty::after {
+    content: "Important";
+}
+
+/* Success callout */
+[data-callout][data-callout-type="success"] {
+    border-color: var(--foam);
+    background: color-mix(in srgb, var(--foam), transparent 90%);
+}
+
+[data-callout][data-callout-type="success"] [data-callout-title] {
+    color: var(--foam);
+}
+
+[data-callout][data-callout-type="success"] [data-callout-title]:empty::after {
+    content: "Success";
+}
+
+/* Error/Danger callout */
+[data-callout][data-callout-type="error"],
+[data-callout][data-callout-type="danger"] {
+    border-color: var(--love);
+    background: color-mix(in srgb, var(--love), transparent 90%);
+}
+
+[data-callout][data-callout-type="error"] [data-callout-title],
+[data-callout][data-callout-type="danger"] [data-callout-title] {
+    color: var(--love);
+}
+
+[data-callout][data-callout-type="error"] [data-callout-title]:empty::after {
+    content: "Error";
+}
+
+[data-callout][data-callout-type="danger"] [data-callout-title]:empty::after {
+    content: "Danger";
+}
+
+/* Question callout */
+[data-callout][data-callout-type="question"] {
+    border-color: var(--rose);
+    background: color-mix(in srgb, var(--rose), transparent 90%);
+}
+
+[data-callout][data-callout-type="question"] [data-callout-title] {
+    color: var(--rose);
+}
+
+[data-callout][data-callout-type="question"] [data-callout-title]:empty::after {
+    content: "Question";
+}
+
+/* Quote callout */
+[data-callout][data-callout-type="quote"] {
+    border-color: var(--subtle);
+    background: color-mix(in srgb, var(--subtle), transparent 90%);
+}
+
+[data-callout][data-callout-type="quote"] [data-callout-title] {
+    color: var(--subtle);
+}
+
+[data-callout][data-callout-type="quote"] [data-callout-title]:empty::after {
+    content: "Quote";
+}
+
+/* Foldable callouts (details/summary) */
+details[data-callout] {
+    cursor: pointer;
+}
+
+details[data-callout] > summary[data-callout-title] {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+}
+
+details[data-callout] > summary[data-callout-title]::-webkit-details-marker {
+    display: none;
+}
+
+details[data-callout] > summary[data-callout-title]::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+details[data-callout][open] > summary[data-callout-title]::before {
+    transform: rotate(90deg);
+}

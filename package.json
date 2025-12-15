@@ -15,6 +15,7 @@
     "@astrojs/netlify": "^6.6.0",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
+    "@r4ai/remark-callout": "^0.6.2",
     "astro": "^5.14.7"
   }
 }

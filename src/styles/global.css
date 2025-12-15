@@ -166,6 +166,10 @@ main {
 }
 
 .study-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 800px;
     margin: 3rem auto;
@@ -205,6 +209,14 @@ main {
 .study-block:hover {
     border-color: var(--rose);
     background-color: var(--overlay);
+}
+
+.all-notes-link {
+    width: fit-content;
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
 #blogList {
