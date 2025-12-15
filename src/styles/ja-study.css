@@ -97,10 +97,10 @@ main {
     font-size:  8rem;
     font-weight: bold;
     color: var(--love);
-    opacity: 0.2;
+    opacity: 0.08;
     pointer-events: none;
     user-select: none;
-    z-index: 0;
+    z-index: 10;
     line-height: 1;
 }
 
@@ -133,34 +133,62 @@ main {
 .progress-container {
     width: 100%;
     position: relative;
-    height: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
     background: var(--base);
-    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    container-type: inline-size;
+}
+
+.progress-bar-terminal {
+    flex: 1;
+    font-size: 5cqw;
+    letter-spacing: 0.1em;
+    color: var(--foam);
+    white-space: nowrap;
     overflow: hidden;
 }
 
-.progress-bar {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background: linear-gradient(90deg, var(--foam), var(--pine));
-    border-radius: 4px;
-    transition: width 0.3s ease;
+.progress-text {
+    font-size: 4cqw;
+    color: var(--gold);
+    opacity: 1;
+    font-family: 'Courier New', Courier, monospace;
+    min-width: 3ch;
 }
 
-.progress-text {
-    display: none;
+.loading-spinner::before {
+    content: '⠋';
+    animation: braille-spin 0.8s steps(8) infinite;
+}
+
+@keyframes braille-spin {
+    0% { content: '⠋'; }
+    12.5% { content: '⠙'; }
+    25% { content: '⠹'; }
+    37.5% { content: '⠸'; }
+    50% { content: '⠼'; }
+    62.5% { content: '⠴'; }
+    75% { content: '⠦'; }
+    87.5% { content: '⠧'; }
+    100% { content: '⠇'; }
 }
 
 .anilist-section {
     padding: 2rem;
-    max-width: 1220px;
+    max-width: 800px;
+    width: 75%;
     margin: 0 auto;
 }
 
 .media-category {
     margin-bottom: 3rem;
+    background: var(--overlay);
+    border-radius: 8px;
+    padding: 1.5rem;
 }
 
 .media-category h2 {

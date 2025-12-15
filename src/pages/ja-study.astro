@@ -107,7 +107,11 @@ const textbooks = [
                             <div class="textbook-info">
                                 <span class="textbook-title">{book.title}</span>
                                 <div class="progress-container">
-                                    <div class="progress-bar" style={`width: ${book.completion}%`}></div>
+                                    <span class="progress-bar-terminal">
+                                        {Array.from({ length: Math.floor(book.completion / 5) }).map(() => '#').join('')}
+                                        {book.completion < 100 && <span class="loading-spinner"></span>}
+                                        {Array.from({ length: Math.floor((100 - book.completion) / 5) }).map(() => '.').join('')}
+                                    </span>
                                     <span class="progress-text">{book.completion}%</span>
                                 </div>
                             </div>
