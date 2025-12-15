@@ -40,7 +40,7 @@ const textbooks = [
     { title: "Japanese for Young People I", completion: 100, cover: "/textbooks/japanese/jyp_1.jpg" },
     { title: "Japanese for Young People II", completion: 100, cover: "/textbooks/japanese/jyp_2.jpg" },
     { title: "Japanese for Young People III", completion: 100, cover: "/textbooks/japanese/jyp_3.jpeg" },
-    { title: "Quartet 1", completion: 10, cover: "/textbooks/japanese/quartet_1.png" },
+    { title: "Quartet 1", completion: 15, cover: "/textbooks/japanese/quartet_1.png" },
     { title: "Shin Kanzen Master N3 - Reading", completion: 100, cover: "/textbooks/japanese/skm_n3_reading.jpg" },
     { title: "Shin Kanzen Master N3 - Grammar", completion: 100, cover: "/textbooks/japanese/skm_n3_grammar.jpg" },
     { title: "Shin Kanzen Master N3 - Listening", completion: 100, cover: "/textbooks/japanese/skm_n3_listening.jpg" },
@@ -80,45 +80,20 @@ const textbooks = [
                 <div class="stats-container">
                     <div class="tutoring-card">
                         <div class="tutoring-hours">
-                            {totalHours}
+                            {totalHours}hrs
                         </div>
-                        <div class="tutoring-label">Total Tutoring Hours</div>
+                        <div class="tutoring-label">tutoring</div>
                     </div>
                     <div class="tutoring-card">
                         <div class="tutoring-hours" id="anki-count">
                             Loading...
                         </div>
-                        <div class="tutoring-label">Words Known</div>
+                        <div class="tutoring-label">known words</div>
                     </div>
                 </div>
             </div>
 
-            <div class="textbook-section">
-                <h2>Textbooks</h2>
-                <div class="textbook-list">
-                    {textbooks.map((book) => (
-                        <div class={`textbook-row ${book.completion === 100 ? 'completed' : ''}`}>
-                            {book.completion === 100 && (
-                                <div class="completion-badge">完了</div>
-                            )}
-                            {book.cover && (
-                                <img src={book.cover} alt={book.title} class="textbook-cover" loading="lazy" />
-                            )}
-                            <div class="textbook-info">
-                                <span class="textbook-title">{book.title}</span>
-                                <div class="progress-container">
-                                    <span class="progress-bar-terminal">
-                                        {Array.from({ length: Math.floor(book.completion / 5) }).map(() => '#').join('')}
-                                        {book.completion < 100 && <span class="loading-spinner"></span>}
-                                        {Array.from({ length: Math.floor((100 - book.completion) / 5) }).map(() => '.').join('')}
-                                    </span>
-                                    <span class="progress-text">{book.completion}%</span>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            
 
             <div class="anilist-section">
                 <div
@@ -148,6 +123,32 @@ const textbooks = [
                     <div class="media-grid" id="playing-grid"></div>
                 </div>
             </div>
+            <div class="textbook-section">
+                <h2>Textbooks</h2>
+                <div class="textbook-list">
+                    {textbooks.map((book) => (
+                        <div class={`textbook-row ${book.completion === 100 ? 'completed' : ''}`}>
+                            {book.completion === 100 && (
+                                <div class="completion-badge">完了</div>
+                            )}
+                            {book.cover && (
+                                <img src={book.cover} alt={book.title} class="textbook-cover" loading="lazy" />
+                            )}
+                            <div class="textbook-info">
+                                <span class="textbook-title">{book.title}</span>
+                                <div class="progress-container">
+                                    <span class="progress-bar-terminal">
+                                        {Array.from({ length: Math.floor(book.completion / 5) }).map(() => '#').join('')}
+                                        {book.completion < 100 && <span class="loading-spinner"></span>}
+                                        {Array.from({ length: Math.floor((100 - book.completion) / 5) }).map(() => '.').join('')}
+                                    </span>
+                                    <span class="progress-text">{book.completion}%</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </main>
         <Footer />
 
@@ -161,7 +162,7 @@ const textbooks = [
                     if (response.ok) {
                         const data = await response.json();
                         document.getElementById("anki-count")!.textContent =
-                            `${(data.count || 0).toLocaleString()}/10,000`;
+                            `${(data.count || 0).toLocaleString()}`;
                     }
                 } catch (error) {
                     console.error("Failed to fetch Anki count:", error);

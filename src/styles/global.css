@@ -184,116 +184,27 @@ main {
     padding-bottom: 0.75rem;
 }
 
-.study-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+.lang-list {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .study-block {
-    position: relative;
-    aspect-ratio: 1.6;
-    overflow: hidden;
     text-decoration: none;
-    background: var(--surface);
-    border-radius: 4px;
-    border: 2px solid var(--subtle);
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    cursor: pointer;
+    color: var(--rose);
+    border: 2px solid var(--foam);
+    padding: 1rem 1.5rem;
+    transition: all 0.1s ease-in-out;
+    font-size: 1.4rem;
 }
 
 .study-block:hover {
-    box-shadow: 6px 6px 0 var(--overlay);
-}
-
-.ja-block {
-    border-color: var(--foam);
-}
-
-.ja-block:hover {
-    border-color: var(--foam);
-    box-shadow: 6px 6px 0 var(--overlay);
-}
-
-.ja-block:hover .block-bg {
-    color: rgba(0, 204, 153, 0.15);
-}
-
-.fr-block {
-    border-color: var(--love);
-}
-
-.fr-block:hover {
-    border-color: var(--love);
-    box-shadow: 6px 6px 0 var(--overlay);
-}
-
-.fr-block:hover .block-bg {
-    color: rgba(204, 0, 102, 0.15);
-}
-
-.block-bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 6rem;
-    font-weight: 900;
-    color: rgba(110, 106, 134, 0.08);
-    white-space: nowrap;
-    pointer-events: none;
-    user-select: none;
-    transition: color 0.3s ease;
-}
-
-.block-content {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 1.5rem;
-    right: 1.5rem;
-}
-
-.block-label {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.25rem;
-}
-
-.block-subtitle {
-    font-size: 0.9rem;
-    color: var(--rose);
-    font-weight: 500;
-}
-
-.ja-block:hover .block-label {
-    color: var(--foam);
-}
-
-.ja-block:hover .block-subtitle {
-    color: var(--foam);
-}
-
-.fr-block:hover .block-label {
-    color: var(--love);
-}
-
-.fr-block:hover .block-subtitle {
-    color: var(--love);
-}
-
-@media (max-width: 640px) {
-    .study-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .block-bg {
-        font-size: 4rem;
-    }
-    
-    .block-label {
-        font-size: 1.1rem;
-    }
+    border-color: var(--rose);
+    background-color: var(--overlay);
 }
 
 #blogList {

@@ -1,0 +1,3 @@
+[submodule "src/content/languages"]
+	path = src/content/languages
+	url = git@github.com:jacksonSingleton/languages.git
